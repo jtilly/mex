@@ -1,5 +1,5 @@
 # Using mex files with Matlab and Fortran
-Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm using Intel's Fortran compiler. This sample program computes Fibonacci numbers.
+Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm using Intel's Fortran compiler. This sample program computes Fibonacci numbers. 
 
 ## Installation
 
@@ -22,11 +22,14 @@ gateway(25)
 toc
 ```
 
-## Performance on my Desktop Computer
+## Computational Performance
+
+Time (in seconds) to compute the 25th Fibonacci number (=75025).
 
 |  | Matlab | Fortran |
 |------|-------|--------|
-|Time in seconds|1.802955 | 0.001470
+|Desktop Computer with Ubuntu |1.8029 | 0.0014 |
+|Macbook Air with Mac OS X Yosemite | 2.0076 | 0.0058 |
 
 
 ## Files in this Repository
