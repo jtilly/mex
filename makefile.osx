@@ -4,20 +4,11 @@ F90 = ifort
 # compiler flags
 FFLAGS = -O3 -fpp -align all -fPIC -fno-omit-frame-pointer -D__amd64
 
-# define libraries to link to 
-LIBS = 
-
 # define matlab dir
 MDIR = /Applications/MATLAB_R2014a.app
 
-# where are the fortran files stored relative to the makefile
-FORTRANDIR = fortran
-
-# where to store auxiliary files (.o and .mod)
-BINDIR = .
-
 # define which files to be included
-FINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -I$(BINDIR) -lmx -lmex -lmat
+FINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -Ifortran -lmx -lmex -lmat
 
 # define extension
 EXT = mexmaci64
@@ -26,25 +17,29 @@ EXT = mexmaci64
 all : gateway.$(EXT) standalone.out
 
 # file with global definitions
-globaldef.o:$(FORTRANDIR)/globaldef.f90
-	$(F90) $(FFLAGS) -c $< -module $(BINDIR) -I$(BINDIR) -o $(BINDIR)/$@
+globaldef.o:fortran/globaldef.f90
+	$(F90) $(FFLAGS) -c $< -module fortran -Ifortran -o fortran/$@
 
 # fibonacci module: this is where the action happens
-fibonacci.o:$(FORTRANDIR)/fibonacci.f90
-	$(F90) $(FFLAGS) -c $< -module $(BINDIR) -I$(BINDIR) -o $(BINDIR)/$@
+fibonacci.o:fortran/fibonacci.f90 globaldef.o
+	$(F90) $(FFLAGS) -c $< -module fortran -Ifortran -o fortran/$@
 
 # copying data between Matlab and Fortran and calling the fibonacci function
-gateway.o:$(FORTRANDIR)/gateway.f90 globaldef.o fibonacci.o
-	$(F90) $(FFLAGS) $(FINCLUDE) $(LIBS) -c $< -module $(BINDIR) -o $(BINDIR)/$@
+gateway.o:fortran/gateway.f90 globaldef.o fibonacci.o
+	$(F90) $(FFLAGS) $(FINCLUDE) -c $< -module fortran -o fortran/$@
 
 # creating the mexmaci64 file that Matlab can communicate with
 gateway.$(EXT):gateway.o
-	$(F90) $(FFLAGS) $(FINCLUDE) $(LIBS) -nofor_main -bundle $(BINDIR)/gateway.o $(BINDIR)/globaldef.o $(BINDIR)/fibonacci.o -o $@
+	$(F90) $(FFLAGS) $(FINCLUDE) -nofor_main -bundle fortran/gateway.o fortran/globaldef.o fortran/fibonacci.o -o $@
 
-# standalone program
-standalone.out:$(FORTRANDIR)/standalone.f90
-	$(F90) $(FFLAGS) $(FFLAGS) -I$(BINDIR) $(BINDIR)/globaldef.o $(BINDIR)/fibonacci.o -o $@
+# standalone.o 
+standalone.o:fortran/standalone.f90 globaldef.o fibonacci.o
+	$(F90) $(FFLAGS) -c $< -module fortran -Ifortran -o fortran/$@
+
+# standalone.out
+standalone.out:standalone.o
+	$(F90) -O3 fortran/standalone.o fortran/fibonacci.o fortran/globaldef.o -o $@
 
 # clean up
 clean:
-	rm -f $(BINDIR)/*.o $(BINDIR)/*.mod *.$(EXT)
+	rm -f fortran/*.o fortran/*.mod *.$(EXT) *.out
