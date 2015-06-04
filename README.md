@@ -26,3 +26,15 @@ toc
 |  | Matlab | Fortran |
 |------|-------|--------|
 |Time in seconds|1.802955 | 0.001470
+
+
+#### Files in this repository
+ * `/fortran` 
+       - `fibonacci.f90` module with Fibonacci function
+       - `gateway.f90` gateway script that can be called from Matlab
+       - `globaldef.f90` module with global definitions
+       - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab (useful for debugging)
+ * `fibonacci.m` Matlab implementation of the Fibonacci function
+ * `main.m` Matlabs script that calls both the Matlab and Fortran implementations of the Fibonacci function
+ * `makefile.linux` makefile for Linux
+ * `makefile.osx` makefile for Mac OS X
