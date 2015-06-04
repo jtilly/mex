@@ -11,7 +11,7 @@ LIBS =
 MDIR = /etc/matlab2013
 
 # where are the fortran files stored relative to the makefile
-FORTRANDIR = .
+FORTRANDIR = fortran
 
 # where to store auxiliary files (.o and .mod)
 BINDIR = .
