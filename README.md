@@ -29,7 +29,7 @@ toc
 |Time in seconds|1.802955 | 0.001470
 
 
-#### Files in this repository
+#### Files in this Repository
 
 I'm keeping the Fortran code fairly self-contained. I'm also providing a standalone program `./standalone.out` that can be used to debug the Fortran code independently. 
 
