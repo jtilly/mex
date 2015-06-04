@@ -1,0 +1,46 @@
+# compiles mex file using the intel compiler
+F90 = ifort
+
+# compiler flags
+FFLAGS =  -O3 -fpp -shared -fPIC -D__amd64
+
+# define libraries to link to 
+LIBS =
+
+# define matlab dir
+MDIR = /etc/matlab2013
+
+# where are the fortran files stored relative to the makefile
+FORTRANDIR = .
+
+# where to store auxiliary files (.o and .mod)
+BINDIR = .
+
+# define which files to be included
+FINCLUDE = -I$(MDIR)/extern/include -I$(BINDIR)
+
+# define extension
+EXT = mexa64
+
+# the output file will be called gateway.mexa64
+all : gateway.$(EXT)
+
+# file with global definitions
+globaldef.o:$(FORTRANDIR)/globaldef.f90
+	$(F90) $(FFLAGS) -c $< -module $(BINDIR) -I$(BINDIR) -o $(BINDIR)/$@
+
+# fibonacci module: this is where the action happens
+fibonacci.o:$(FORTRANDIR)/fibonacci.f90
+	$(F90) $(FFLAGS) -c $< -module $(BINDIR) -I$(BINDIR) -o $(BINDIR)/$@
+
+# copying data between Matlab and Fortran and calling the fibonacci function
+gateway.o:$(FORTRANDIR)/gateway.f90 globaldef.o fibonacci.o
+	$(F90) $(FFLAGS) $(FINCLUDE) $(LIBS) -c $< -module $(BINDIR) -o $(BINDIR)/$@
+
+# creating the mexa64 file that Matlab can communicate with
+gateway.$(EXT):gateway.o
+	$(F90) $(FFLAGS) $(FINCLUDE) $(LIBS) $(BINDIR)/gateway.o $(BINDIR)/globaldef.o $(BINDIR)/fibonacci.o -o $@
+
+# clean up
+clean:
+	rm -f $(BINDIR)/*.o $(BINDIR)/*.mod *.$(EXT)
