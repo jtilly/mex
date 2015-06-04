@@ -1,12 +1,12 @@
-# mex
+# Using mex files with Matlab and Fortran
 Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm using Intel's Fortran compiler. This sample program computes Fibonacci numbers.
 
-#### Installation
+## Installation
 
  * Edit `makefile.linux` or `makefile.osx` and make sure that `MDIR` points to your Matlab installation
  * Compile the mex file using `make -f makefile.linux` on Linux or `make -f makefile.osx` on Mac OS X
  
-#### Example 
+## Example 
 
 Run `main.m` in Matlab:
  
@@ -22,14 +22,14 @@ gateway(25)
 toc
 ```
 
-#### Performance on my Desktop Computer
+## Performance on my Desktop Computer
 
 |  | Matlab | Fortran |
 |------|-------|--------|
 |Time in seconds|1.802955 | 0.001470
 
 
-#### Files in this Repository
+## Files in this Repository
 
 I'm keeping the Fortran code fairly self-contained. I'm also providing a standalone program `./standalone.out` that can be used to debug the Fortran code independently. 
 
