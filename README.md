@@ -1,11 +1,11 @@
 # mex
-Examples on how to use mex files in Matlab under Linux
+Examples on how to use mex files in Matlab on Linux and Mac OS
 
 ## Fortran (ifort)
 This is a simple example program that computes Fibonacci numbers in both Fortran and Matlab 
 
- * Edit `fortran/makefile`, in particular make sure that `MDIR` points to your Matlab installation
- * Compile the mex file using `make`
+ * Edit `fortran/makefile.linux` or `fortran/makefile.osx' in particular make sure that `MDIR` points to your Matlab installation
+ * Compile the mex file using `make -f makefile.linux` on Linux and `make -f makefile.osx` on Mac OS X
  * Run `fortran/main.m` in Matlab
 
 #### Example 
