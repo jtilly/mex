@@ -3,12 +3,12 @@ Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_ex
 
 ## Installation
 
- * Edit `makefile.linux` or `makefile.osx` and make sure that `MDIR` points to your Matlab installation
+ * Edit [`makefile.linux`](https://github.com/jtilly/mex/blob/master/makefile.linux) or [`makefile.osx`](https://github.com/jtilly/mex/blob/master/makefile.osx) and make sure that `MDIR` points to your Matlab installation
  * Compile the mex file using `make -f makefile.linux` on Linux or `make -f makefile.osx` on Mac OS X
  
 ## Example 
 
-Run `main.m` in Matlab:
+Run [`main.m`](https://github.com/jtilly/mex/blob/master/main.m) in Matlab:
  
 ```{matlab}
 % use matlab (correct answer is 75025)
