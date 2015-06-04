@@ -23,7 +23,7 @@ FINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -I$(BINDIR) -lmx -lmex 
 EXT = mexmaci64
 
 # the output file will be called gateway.mexmaci64
-all : gateway.$(EXT)
+all : gateway.$(EXT) standalone.out
 
 # file with global definitions
 globaldef.o:$(FORTRANDIR)/globaldef.f90
@@ -40,6 +40,10 @@ gateway.o:$(FORTRANDIR)/gateway.f90 globaldef.o fibonacci.o
 # creating the mexmaci64 file that Matlab can communicate with
 gateway.$(EXT):gateway.o
 	$(F90) $(FFLAGS) $(FINCLUDE) $(LIBS) -nofor_main -bundle $(BINDIR)/gateway.o $(BINDIR)/globaldef.o $(BINDIR)/fibonacci.o -o $@
+
+# standalone program
+standalone.out:$(FORTRANDIR)/standalone.f90
+	$(F90) $(FFLAGS) $(FFLAGS) -I$(BINDIR) $(BINDIR)/globaldef.o $(BINDIR)/fibonacci.o -o $@
 
 # clean up
 clean:
