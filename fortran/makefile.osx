@@ -5,7 +5,7 @@ F90 = ifort
 FFLAGS = -O3 -fpp -align all -fPIC -fno-omit-frame-pointer -D__amd64
 
 # define libraries to link to 
-LIBS =
+LIBS = 
 
 # define matlab dir
 MDIR = /Applications/MATLAB_R2014a.app
@@ -39,7 +39,7 @@ gateway.o:$(FORTRANDIR)/gateway.f90 globaldef.o fibonacci.o
 
 # creating the mexmaci64 file that Matlab can communicate with
 gateway.$(EXT):gateway.o
-	$(F90) $(FFLAGS) $(FINCLUDE) $(LIBS) $(BINDIR)/gateway.o $(BINDIR)/globaldef.o $(BINDIR)/fibonacci.o -o $@
+	$(F90) $(FFLAGS) $(FINCLUDE) $(LIBS) -nofor_main -bundle $(BINDIR)/gateway.o $(BINDIR)/globaldef.o $(BINDIR)/fibonacci.o -o $@
 
 # clean up
 clean:
