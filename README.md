@@ -1,5 +1,5 @@
 # mex
-Examples on how to use mex files in Matlab on Linux and Mac OS X
+Examples on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X
 
 ## Fortran (ifort)
 This is a simple example program that computes Fibonacci numbers in both Fortran and Matlab 
