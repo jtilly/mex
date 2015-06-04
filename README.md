@@ -1,21 +1,22 @@
-# mex
-Examples on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X
+f# mex
+Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm using the Intel's Fortran compiler. This sample program computes Fibonacci numbers.
 
-## Fortran (ifort)
-This is a simple example program that computes Fibonacci numbers in both Fortran and Matlab 
+#### Installation
 
  * Edit `makefile.linux` or `makefile.osx` and make sure that `MDIR` points to your Matlab installation
  * Compile the mex file using `make -f makefile.linux` on Linux or `make -f makefile.osx` on Mac OS X
- * Run `main.m` in Matlab
-
+ 
 #### Example 
+
+Run `main.m` in Matlab:
+ 
 ```{matlab}
 % use matlab (correct answer is 75025)
 tic
 fibonacci(25)
 toc
 
-% use fortran
+% use Fortran
 tic
 gateway(25)
 toc
@@ -29,11 +30,14 @@ toc
 
 
 #### Files in this repository
+
+I'm keeping the Fortran code fairly self-contained. I'm also providing a standalone program `./standalone.out` that can be used to debug the Fortran code independently. 
+
  * `/fortran` 
        - `fibonacci.f90` module with Fibonacci function
        - `gateway.f90` gateway script that can be called from Matlab
        - `globaldef.f90` module with global definitions
-       - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab (useful for debugging)
+       - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab 
  * `fibonacci.m` Matlab implementation of the Fibonacci function
  * `main.m` Matlabs script that calls both the Matlab and Fortran implementations of the Fibonacci function
  * `makefile.linux` makefile for Linux
