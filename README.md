@@ -1,4 +1,4 @@
-f# mex
+# mex
 Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm using the Intel's Fortran compiler. This sample program computes Fibonacci numbers.
 
 #### Installation
