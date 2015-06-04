@@ -10,7 +10,7 @@ This is a simple example program that computes Fibonacci numbers in both Fortran
 
 #### Example 
 ```{matlab}
-% use matlab 
+% use matlab (correct answer is 75025)
 tic
 fibonacci(25)
 toc
