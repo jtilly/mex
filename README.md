@@ -27,9 +27,10 @@ toc
 Time (in seconds) to compute the 25th Fibonacci number (=75025).
 
 |  | Matlab | Fortran |
-|------|-------|--------|
-|Desktop Computer with Ubuntu |1.8029 | 0.0014 |
-|Macbook Air with Mac OS X Yosemite | 2.0076 | 0.0058 |
+|-----------------------------------|--------|--------|
+|Desktop Computer running Ubuntu       | 1.8029 | 0.0014 |
+|Linux Server running CentOS           | 2.5575 | 0.0013 | 
+|Macbook Air running Mac OS X Yosemite | 2.0076 | 0.0058 |
 
 
 ## Files in this Repository
