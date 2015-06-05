@@ -1,8 +1,7 @@
 # Travis doesn't have a fortran build config, so we'll use c as a base
 language: c
 branches:
-  only:
-    - master
+  only: master
 sudo: required
 install:
     - sudo apt-get install gfortran
