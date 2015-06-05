@@ -25,7 +25,7 @@ gateway(25)
 toc
 ```
 
-The function `matlab` calls a Matlab implementation of the Fibonacci function:
+The function [`fibonacci`](https://github.com/jtilly/mex/blob/master/fibonacci.m) calls a Matlab implementation of the Fibonacci function:
 ```{matlab}
 function [ fnum ] = fibonacci( n )
     if (n<2)
@@ -36,7 +36,7 @@ function [ fnum ] = fibonacci( n )
 end
 ```
 
-The function `gateway` calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
+The function [`gateway`](https://github.com/jtilly/mex/blob/master/fortran/gateway.f90) calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
 ```{FORTRAN}
 recursive function fib (n)  result (fnum) 
   integer, intent(in)  :: n
