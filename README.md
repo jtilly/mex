@@ -1,5 +1,5 @@
 # Using mex files with Matlab and Fortran 
-[![Build Status](https://travis-ci.org/jtilly/mex.svg?branch=master)](https://travis-ci.org/jtilly/mex)
+[![Build Status](https://travis-ci.org/jtilly/mex.svg?branch=master)](https://travis-ci.org/jtilly/mex "Don't take this build status badge too seriously, please. I'm only building the standalone program on Travis CI, not the mex files. The badge still looks pretty though :)")
 
 Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. This works with both the GCC compiler, [`gfortran`](https://gcc.gnu.org/wiki/GFortran), and Intel's Fortran compiler, [`ifort`](https://software.intel.com/en-us/fortran-compilers). This sample program computes Fibonacci numbers. 
 
@@ -25,7 +25,7 @@ gateway(25)
 toc
 ```
 
-The function `matlab` calls a Matlab implementation of the Fibonacci function:
+The function [`fibonacci`](https://github.com/jtilly/mex/blob/master/fibonacci.m) calls a Matlab implementation of the Fibonacci function:
 ```{matlab}
 function [ fnum ] = fibonacci( n )
     if (n<2)
@@ -36,7 +36,7 @@ function [ fnum ] = fibonacci( n )
 end
 ```
 
-The function `gateway` calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
+The function [`gateway`](https://github.com/jtilly/mex/blob/master/fortran/gateway.f90) calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
 ```{FORTRAN}
 recursive function fib (n)  result (fnum) 
   integer, intent(in)  :: n
@@ -62,7 +62,7 @@ Average time in seconds to compute the 25th Fibonacci number (=75025) on differe
 
 ## Files in this Repository
 
-I'm keeping the Fortran code fairly self-contained. I'm also providing a standalone program `./standalone.out` that can be used to debug the Fortran code independently. 
+I'm keeping the Fortran code fairly self-contained. I'm also providing a standalone program `./standalone.out` that can be used to debug the Fortran code independently. (This is also the only part of the program that Travis CI is building).
 
  * `/fortran` 
        - `fibonacci.f90` module with Fibonacci function
