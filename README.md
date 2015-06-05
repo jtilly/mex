@@ -22,6 +22,30 @@ gateway(25)
 toc
 ```
 
+The function `matlab` calls a Matlab implementation of the Fibonacci function:
+```{matlab}
+function [ fnum ] = fibonacci( n )
+    if (n<2)
+        fnum = n;
+    else
+        fnum = fibonacci(n-1) + fibonacci(n-2);
+    end
+end
+```
+
+The function `gateway` calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
+```{FORTRAN}
+recursive function fib (n)  result (fnum) 
+  integer, intent(in)  :: n
+  integer :: fnum
+  if (n<2) then 
+     fnum = n
+  else
+     fnum = fib(n-1) + fib(n-2)
+  endif
+end function fib
+```
+
 ## Computational Performance
 
 Time (in seconds) to compute the 25th Fibonacci number (=75025).
