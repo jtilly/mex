@@ -5,7 +5,7 @@ branches:
     - master
 sudo: required
 install:
-    - sudo apt-get install gfortran-4.8 
+    - sudo apt-get install gfortran
     - make standalone.out
 script: ./standalone.out
 notifications:
