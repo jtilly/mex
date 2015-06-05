@@ -1,10 +1,9 @@
 module globaldef
     
-    use ISO_FORTRAN_ENV
     implicit none
     public
 
-    ! Define precision type (defined in ISO_FORTRAN_ENV)
-    integer,  parameter :: dp = REAL64
+    ! Define precision type 
+    integer,  parameter :: dp = kind(1.0D0)
 
 end module globaldef
