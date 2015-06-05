@@ -5,7 +5,7 @@ MDIR = /etc/matlab
 CC = g++
 
 # compiler flags for g++
-CCFLAGS = -O3 -std=c++11 -shared -fpic
+CCFLAGS = -O3 -shared -fpic
 
 # to use the intel compiler instead, uncomment CC and CCFLAGS below:
 
@@ -35,6 +35,7 @@ ifeq ($(findstring Darwin,${UNAME}), Darwin)
 	CINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -Ic++ -lmx -lmex -lmat
 	# define extension
 	EXT = mexmaci64
+	CCFLAGS += -std=c++11 
 endif
 
 # the output file will be called gatewayCpp.mexa64
