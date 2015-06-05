@@ -62,7 +62,7 @@ Average time in seconds to compute the 25th Fibonacci number (=75025) on differe
 
 ## Files in this Repository
 
-I'm keeping the Fortran code fairly self-contained. I'm also providing a standalone program `./standalone.out` that can be used to debug the Fortran code independently. 
+I'm keeping the Fortran code fairly self-contained. I'm also providing a standalone program `./standalone.out` that can be used to debug the Fortran code independently. (This is also the only part of the program that Travis CI is building).
 
  * `/fortran` 
        - `fibonacci.f90` module with Fibonacci function
