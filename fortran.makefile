@@ -10,10 +10,10 @@ FFLAGS = -O3 -shared -cpp -fPIC -Jfortran
 # to use the intel compiler instead, uncomment F90 and FFLAGS below:
 
 # compiles mex file using the intel compiler
-F90 = ifort
+# F90 = ifort
 
 # compiler flags for intel compiler
-FFLAGS = -O3 -fpp -shared -fPIC -D__amd64 -module fortran
+# FFLAGS = -O3 -fpp -shared -fPIC -D__amd64 -module fortran
 
 # flags for stand alone program
 FFLAGS_STANDALONE = -O3
