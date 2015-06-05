@@ -1,13 +1,13 @@
-# Using mex files with Matlab and Fortran 
+# Using C++ and Fortran mex files with Matlab
 [![Build Status](https://travis-ci.org/jtilly/mex.svg?branch=master)](https://travis-ci.org/jtilly/mex "Don't take this build status badge too seriously, please. I'm only building the standalone program on Travis CI, not the mex files. The badge still looks pretty though :)")
 
 Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. This works with both the GCC compiler, [`gfortran`](https://gcc.gnu.org/wiki/GFortran), and Intel's Fortran compiler, [`ifort`](https://software.intel.com/en-us/fortran-compilers). This sample program computes Fibonacci numbers. 
 
 ## Installation
 
- * Edit [`makefile`](https://github.com/jtilly/mex/blob/master/makefile) and make sure that `MDIR` points to your Matlab installation
- * The default compiler is [`gfortran`](https://gcc.gnu.org/wiki/GFortran). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`makefile`](https://github.com/jtilly/mex/blob/master/makefile)
- * Compile the mex file using `make`
+ * Edit [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile) and make sure that `MDIR` points to your Matlab installation
+ * The default compiler is [`gfortran`](https://gcc.gnu.org/wiki/GFortran). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile)
+ * Compile the mex file using `make` (or `gnumake` on OS X)
  
 ## Example 
 
@@ -21,7 +21,7 @@ toc
 
 % use Fortran
 tic
-gateway(25)
+gatewayFortran(25)
 toc
 ```
 
@@ -36,7 +36,7 @@ function [ fnum ] = fibonacci( n )
 end
 ```
 
-The function [`gateway`](https://github.com/jtilly/mex/blob/master/fortran/gateway.f90) calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
+The function [`gateway`](https://github.com/jtilly/mex/blob/master/fortran/gatewayFortran.f90) calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
 ```{FORTRAN}
 recursive function fib (n)  result (fnum) 
   integer, intent(in)  :: n
@@ -66,9 +66,9 @@ I'm keeping the Fortran code fairly self-contained. I'm also providing a standal
 
  * `/fortran` 
        - `fibonacci.f90` module with Fibonacci function
-       - `gateway.f90` gateway script that can be called from Matlab
+       - `gatewayFortran.f90` gateway script that can be called from Matlab
        - `globaldef.f90` module with global definitions
        - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab 
  * `fibonacci.m` Matlab implementation of the Fibonacci function
  * `main.m` Matlab script that calls both the Matlab and Fortran implementation
- * `makefile` makefile for Linux and Mac OS X
+ * `fortran.makefile` fortran.makefile for Linux and Mac OS X
