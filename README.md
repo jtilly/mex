@@ -1,10 +1,11 @@
 # Using mex files with Matlab and Fortran
-Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm using Intel's Fortran compiler. This sample program computes Fibonacci numbers. 
+Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. This works with both [`gfortran`](https://gcc.gnu.org/wiki/GFortran) and [`ifort`](https://software.intel.com/en-us/fortran-compilers). This sample program computes Fibonacci numbers. 
 
 ## Installation
 
- * Edit [`makefile.linux`](https://github.com/jtilly/mex/blob/master/makefile.linux) or [`makefile.osx`](https://github.com/jtilly/mex/blob/master/makefile.osx) and make sure that `MDIR` points to your Matlab installation
- * Compile the mex file using `make -f makefile.linux` on Linux or `make -f makefile.osx` on Mac OS X
+ * Edit [`makefile`](https://github.com/jtilly/mex/blob/master/makefile) and make sure that `MDIR` points to your Matlab installation
+ * If you want to use `ifort` uncomment the appropriate lines in [`makefile`](https://github.com/jtilly/mex/blob/master/makefile)
+ * Compile the mex file using `make`
  
 ## Example 
 
@@ -68,5 +69,4 @@ I'm keeping the Fortran code fairly self-contained. I'm also providing a standal
        - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab 
  * `fibonacci.m` Matlab implementation of the Fibonacci function
  * `main.m` Matlab script that calls both the Matlab and Fortran implementation
- * `makefile.linux` makefile for Linux
- * `makefile.osx` makefile for Mac OS X
+ * `makefile` makefile for Linux and Mac OS X
