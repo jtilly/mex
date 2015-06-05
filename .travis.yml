@@ -1,7 +1,14 @@
 # Travis doesn't have a fortran build config, so we'll use c as a base
 language: c
-compiler: gcc
+branches:
+  only:
+    - master
+sudo: required
 install:
     - sudo apt-get install gfortran-4.8 
     - make standalone.out
 script: ./standalone.out
+notifications:
+  email:
+    on_success: change
+    on_failure: change
