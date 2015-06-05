@@ -10,10 +10,10 @@ CCFLAGS = -O3 -shared -cpp -fPIC -Jc++
 # to use the intel compiler instead, uncomment CC and CCFLAGS below:
 
 # compiles mex file using the intel compiler
-CC = icpc
+# CC = icpc
 
 # compiler flags for intel compiler
-CCFLAGS = -O3 -shared -fPIC -D__amd64
+# CCFLAGS = -O3 -shared -fPIC -D__amd64
 
 # flags for stand alone program
 CCFLAGS_STANDALONE = -O3
