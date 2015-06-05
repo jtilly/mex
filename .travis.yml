@@ -1,16 +1,17 @@
-# Travis doesn't have a fortran build config, so we'll use c as a base
-language: c
+# Travis doesn't have a fortran build config, so we'll use cpp as a base
+language: cpp
+compiler: gcc
 branches:
-  only:
-    - master
+  only: 
+  	- master
 sudo: required
 install:
     - sudo apt-get install gfortran
     - make -f fortran.makefile standalone.f90.out
     - make -f cpp.makefile standalone.cpp.out
 script: 
-    - ./standalone.f90.out
-    - ./standalone.cpp.out
+	- ./standalone.f90.out
+	- ./standalone.cpp.out
 notifications:
   email:
     on_success: change
