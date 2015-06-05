@@ -6,8 +6,8 @@ branches:
 sudo: required
 install:
     - sudo apt-get install gfortran
-    - make standalone.out
-script: ./standalone.out
+    - make -f fortran.makefile standalone.f90.out
+script: ./standalone.f90.out
 notifications:
   email:
     on_success: change
