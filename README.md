@@ -49,7 +49,7 @@ end function fib
 
 ## Computational Performance
 
-Time (in seconds) to compute the 25th Fibonacci number (=75025).
+Average time in seconds to compute the 25th Fibonacci number (=75025) on different platforms using `ifort`:
 
 |  | Matlab | Fortran |
 |-----------------------------------|--------|--------|
