@@ -1,11 +1,11 @@
 # define matlab dir
-MDIR = /etc/matlab2013
+MDIR = /etc/matlab
 
 # compiles mex files using g++
 CC = g++
 
 # compiler flags for g++
-CCFLAGS = -O3 -shared -cpp -fPIC -Jc++
+CCFLAGS = -O3 -std=c++11 -shared -fpic
 
 # to use the intel compiler instead, uncomment CC and CCFLAGS below:
 

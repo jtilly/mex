@@ -7,7 +7,10 @@ sudo: required
 install:
     - sudo apt-get install gfortran
     - make -f fortran.makefile standalone.f90.out
-script: ./standalone.f90.out
+    - make -f cpp.makefile standalone.cpp.out
+script: 
+	- ./standalone.f90.out
+	- ./standalone.cpp.out
 notifications:
   email:
     on_success: change

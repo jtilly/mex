@@ -1,5 +1,5 @@
 # define matlab dir
-MDIR = /etc/matlab2013
+MDIR = /etc/matlab
 
 # compiles mex files using gfortran
 F90 = gfortran
@@ -66,4 +66,4 @@ standalone.f90.out:standalone.o
 
 # clean up
 clean:
-	rm -f fortran/*.o fortran/*.mod gatewayFortran/*.$(EXT) standalone.f90.out
+	rm -f fortran/*.o fortran/*.mod gatewayFortran.$(EXT) standalone.f90.out
