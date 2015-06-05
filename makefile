@@ -7,8 +7,7 @@ F90 = gfortran
 # compiler flags for gfortran
 FFLAGS = -O3 -shared -cpp -fPIC -Jfortran
 
-# to use the intel compiler instead, uncomment
-# the F90 and FFLAGS below:
+# to use the intel compiler instead, uncomment F90 and FFLAGS below:
 
 # compiles mex file using the intel compiler
 # F90 = ifort
