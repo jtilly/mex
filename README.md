@@ -67,6 +67,6 @@ I'm keeping the Fortran code fairly self-contained. I'm also providing a standal
        - `globaldef.f90` module with global definitions
        - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab 
  * `fibonacci.m` Matlab implementation of the Fibonacci function
- * `main.m` Matlabs script that calls both the Matlab and Fortran implementations of the Fibonacci function
+ * `main.m` Matlab script that calls both the Matlab and Fortran implementation
  * `makefile.linux` makefile for Linux
  * `makefile.osx` makefile for Mac OS X
