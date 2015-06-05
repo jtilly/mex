@@ -4,7 +4,7 @@ Example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_ex
 ## Installation
 
  * Edit [`makefile`](https://github.com/jtilly/mex/blob/master/makefile) and make sure that `MDIR` points to your Matlab installation
- * If you want to use `ifort` uncomment the appropriate lines in [`makefile`](https://github.com/jtilly/mex/blob/master/makefile)
+ * The default compiler is [`gfortran`](https://gcc.gnu.org/wiki/GFortran). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`makefile`](https://github.com/jtilly/mex/blob/master/makefile)
  * Compile the mex file using `make`
  
 ## Example 
