@@ -13,7 +13,7 @@ This repository contains example programs on how to use [mex files](http://www.m
 #### C++
 
  * Edit [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile) and make sure that `MDIR` points to your Matlab installation
- * The default compiler is GCC's `g++`. On Mac OS, make sure to use the `gcc` instead of `clang`. If you want to use Intel's `icpc`, uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
+ * The default compiler is `g++`. If you want to use Intel's `icpc`, uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
  * Compile the mex file using `make -f cpp.makefile` (or `gnumake  -f cpp.makefile` on OS X)
  
 ## Example 
