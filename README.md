@@ -89,7 +89,7 @@ I'm keeping the Fortran and C++ code self-contained. I'm also providing standalo
 
  * `/c++` 
        - `fibonacci.cpp` Fibonacci function
-       - `fibonacci.h` header filder for Fibonacci function
+       - `fibonacci.h` header file for Fibonacci function
        - `gatewayCpp.cpp` gateway script that can be called from Matlab
        - `standalone.cpp` a standalone program that calls the Fibonacci function independently from Matlab 
  * `/fortran` 
