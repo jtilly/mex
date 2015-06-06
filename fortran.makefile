@@ -5,7 +5,7 @@ MDIR = /etc/matlab
 F90 = gfortran
 
 # compiler flags for gfortran
-FFLAGS = -O3 -shared -cpp -fPIC -Jfortran
+FFLAGS = -O3 -cpp -fPIC -Jfortran
 
 # to use the intel compiler instead, uncomment F90 and FFLAGS below:
 
@@ -13,10 +13,7 @@ FFLAGS = -O3 -shared -cpp -fPIC -Jfortran
 # F90 = ifort
 
 # compiler flags for intel compiler
-# FFLAGS = -O3 -fpp -shared -fPIC -D__amd64 -module fortran
-
-# flags for stand alone program
-FFLAGS_STANDALONE = -O3
+# FFLAGS = -O3 -fpp -fPIC -D__amd64 -module fortran
 
 # Figure out which platform we're on
 UNAME = $(shell uname -s)
@@ -24,7 +21,7 @@ UNAME = $(shell uname -s)
 # Linux
 ifeq ($(findstring Linux,${UNAME}), Linux)
 	# define which files to be included
-	FINCLUDE = -I$(MDIR)/extern/include -Ifortran
+	FINCLUDE = -I$(MDIR)/extern/include -Ifortran -shared 
 	# define extension
 	EXT = mexa64
 endif
@@ -32,7 +29,7 @@ endif
 # Mac OS X
 ifeq ($(findstring Darwin,${UNAME}), Darwin)
 	# define which files to be included
-	FINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -Ifortran -lmx -lmex -lmat
+	FINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -Ifortran  -shared -lmx -lmex -lmat
 	# define extension
 	EXT = mexmaci64
 endif
@@ -62,7 +59,7 @@ standalone.o:./fortran/standalone.f90 fibonacci.o
 
 # standalone.out
 standalone.f90.out:standalone.o
-	$(F90) $(FFLAGS_STANDALONE) ./fortran/standalone.o ./fortran/fibonacci.o ./fortran/globaldef.o -o $@
+	$(F90) $(FFLAGS) ./fortran/standalone.o ./fortran/fibonacci.o ./fortran/globaldef.o -o $@
 
 # clean up
 clean:

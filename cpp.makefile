@@ -5,7 +5,7 @@ MDIR = /etc/matlab
 CC = g++
 
 # compiler flags for g++
-CCFLAGS = -O3 -shared -fpic
+CCFLAGS = -O3 -fpic
 
 # to use the intel compiler instead, uncomment CC and CCFLAGS below:
 
@@ -13,10 +13,7 @@ CCFLAGS = -O3 -shared -fpic
 # CC = icpc
 
 # compiler flags for intel compiler
-# CCFLAGS = -O3 -shared -fPIC -D__amd64
-
-# flags for stand alone program
-CCFLAGS_STANDALONE = -O3
+# CCFLAGS = -O3 -fPIC -D__amd64
 
 # Figure out which platform we're on
 UNAME = $(shell uname -s)
@@ -24,7 +21,7 @@ UNAME = $(shell uname -s)
 # Linux
 ifeq ($(findstring Linux,${UNAME}), Linux)
 	# define which files to be included
-	CINCLUDE = -I$(MDIR)/extern/include -Ic++
+	CINCLUDE = -I$(MDIR)/extern/include -Ic++ -shared
 	# define extension
 	EXT = mexa64
 endif
@@ -32,7 +29,7 @@ endif
 # Mac OS X
 ifeq ($(findstring Darwin,${UNAME}), Darwin)
 	# define which files to be included
-	CINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -Ic++ -lmx -lmex -lmat
+	CINCLUDE = -L$(MDIR)/bin/maci64 -Ic++ -shared -lmx -lmex -lmat
 	# define extension
 	EXT = mexmaci64
 	CCFLAGS += -std=c++11 
@@ -47,7 +44,7 @@ fibonacci.o:./c++/fibonacci.cpp
 
 # copying data between Matlab and Fortran and calling the fibonacci function
 gatewayCpp.o:./c++/gatewayCpp.cpp fibonacci.o
-	$(CC) $(CCFLAGS) $(CINCLUDE) -c  $< -o ./c++/$@
+	$(CC) $(CCFLAGS) -I$(MDIR)/extern/include -c  $< -o ./c++/$@
 
 # creating the mexa64 file that Matlab can communicate with
 gatewayCpp.$(EXT):gatewayCpp.o
@@ -59,7 +56,7 @@ standalone.o:./c++/standalone.cpp fibonacci.o
 
 # standalone.out
 standalone.cpp.out:standalone.o
-	$(CC) $(CCFLAGS_STANDALONE) ./c++/standalone.o ./c++/fibonacci.o -o $@
+	$(CC) $(CCFLAGS) ./c++/standalone.o ./c++/fibonacci.o -o $@
 
 # clean up
 clean:
