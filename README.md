@@ -77,13 +77,12 @@ int fib(const int n) {
 
 ## Computational Performance
 
-Average time in seconds to compute the 25th Fibonacci number (=75025) on different platforms using `ifort`:
+Average time in seconds to compute the 25th Fibonacci number (=75025) on different platforms using the GCC compilers:
 
-|  | Matlab | Fortran |
-|-----------------------------------|--------|--------|
-|Desktop Computer running Ubuntu       | 1.8029 | 0.0014 |
-|Macbook Air running Mac OS X Yosemite | 2.0076 | 0.0058 |
-
+|                                   | Matlab | Fortran | C++     |
+|-----------------------------------|--------|--------|----------|
+|Desktop Computer running Ubuntu       | 1.7601 | 0.0006 | 0.0004|
+|Macbook Air running Mac OS X Yosemite | 1.9162 | 0.0015 | 0.0027|
 
 ## Files in this Repository
 
