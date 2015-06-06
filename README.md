@@ -9,7 +9,7 @@ This repository contains an example on how to use [mex files](http://www.mathwor
  * The default compiler is [`gfortran`](https://gcc.gnu.org/wiki/GFortran). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile)
  * Compile the mex file using `make -f fortran.makefile` (or `gnumake  -f fortran.makefile` on OS X)
 
- ## Installation: C++
+## Installation: C++
 
  * Edit [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile) and make sure that `MDIR` points to your Matlab installation
  * The default compiler is [`g++`](https://gcc.gnu.org/). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
@@ -100,5 +100,5 @@ I'm keeping the Fortran and C++ code fairly self-contained. I'm also providing s
        - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab 
  * `fibonacci.m` Matlab implementation of the Fibonacci function
  * `main.m` Matlab script that calls both the Matlab and Fortran implementation
- * `cpp.makefile` fortran.makefile for Linux and Mac OS X
- * `fortran.makefile` fortran.makefile for Linux and Mac OS X
+ * `cpp.makefile` C++ makefile for Linux and Mac OS X
+ * `fortran.makefile` Fortran makefile for Linux and Mac OS X
