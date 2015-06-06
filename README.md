@@ -1,20 +1,19 @@
 # Using Fortran and C++ mex files with Matlab
 [![Build Status](https://travis-ci.org/jtilly/mex.svg?branch=master)](https://travis-ci.org/jtilly/mex "Don't take this build status badge too seriously, please. I'm only building the standalone program on Travis CI, not the mex files. The badge still looks pretty though :)")
 
-This repository contains an example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm computing Fibonacci numbers in Matlab, Fortran, and C++. This works for both the GCC and Intel compilers.
+This repository contains example programs on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm computing Fibonacci numbers in Matlab, Fortran, and C++. This works for both the [GCC](https://gcc.gnu.org/) and Intel compilers.
 
 ## Installation
 #### Fortran
 
  * Edit [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile) and make sure that `MDIR` points to your Matlab installation
- * The default compiler is [`gfortran`](https://gcc.gnu.org/wiki/GFortran). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile)
+ * The default compiler is [`gfortran`](https://gcc.gnu.org/wiki/GFortran). If you want to use Intel's `ifort` uncomment the appropriate lines in [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile)
  * Compile the mex file using `make -f fortran.makefile` (or `gnumake  -f fortran.makefile` on OS X)
 
 #### C++
 
  * Edit [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile) and make sure that `MDIR` points to your Matlab installation
- * The default compiler is [`g++`](https://gcc.gnu.org/). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
- * If you're using `g++` on Mac OS, make sure to use `gcc` and not `clang`, which is the default. 
+ * The default compiler is GCC's `g++`. On Mac OS, make sure to use the `gcc` instead of `clang`. If you want to use Intel's `icpc` uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
  * Compile the mex file using `make -f cpp.makefile` (or `gnumake  -f cpp.makefile` on OS X)
  
 ## Example 
