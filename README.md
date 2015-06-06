@@ -81,8 +81,8 @@ Average time in seconds to compute the 25th Fibonacci number (=75025) on differe
 
 |                                   | Matlab | Fortran | C++     |
 |-----------------------------------|--------|--------|----------|
-|Desktop Computer running Ubuntu       | 1.7601 | 0.0006 | 0.0004|
-|Macbook Air running Mac OS X Yosemite | 1.9162 | 0.0015 | 0.0027|
+|Desktop Computer running Ubuntu       | 1.7893 | 0.0022 | 0.0019|
+|Macbook Air running Mac OS X Yosemite | 2.0151 | 0.0024 | 0.0023|
 
 ## Files in this Repository
 
