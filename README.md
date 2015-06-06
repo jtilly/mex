@@ -40,11 +40,11 @@ toc
 The function [`fibonacci`](https://github.com/jtilly/mex/blob/master/fibonacci.m) calls a Matlab implementation of the Fibonacci function:
 ```{matlab}
 function [ fnum ] = fibonacci( n )
-    if (n<2)
-        fnum = n;
-    else
-        fnum = fibonacci(n-1) + fibonacci(n-2);
-    end
+  if (n<2)
+    fnum = n;
+  else
+    fnum = fibonacci(n-1) + fibonacci(n-2);
+  end
 end
 ```
 
