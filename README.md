@@ -13,6 +13,7 @@ This repository contains an example on how to use [mex files](http://www.mathwor
 
  * Edit [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile) and make sure that `MDIR` points to your Matlab installation
  * The default compiler is [`g++`](https://gcc.gnu.org/). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
+ * If you're using `g++` on Mac OS, make sure to use `gcc` and not `clang`, which is the default. 
  * Compile the mex file using `make -f cpp.makefile` (or `gnumake  -f cpp.makefile` on OS X)
  
 ## Example 
