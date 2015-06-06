@@ -37,6 +37,8 @@ gatewayCpp(25)
 toc
 ```
 
+Next, consider the different implementations of the Fibonacci function. Note that this is only meant as an illustration. There are [much better ways](https://bosker.wordpress.com/2011/04/29/the-worst-algorithm-in-the-world/) to compute the Fibonacci numbers than the algorithm I'm using here.
+
 The function [`fibonacci`](https://github.com/jtilly/mex/blob/master/fibonacci.m) calls a Matlab implementation of the Fibonacci function:
 ```{matlab}
 function [ fnum ] = fibonacci( n )
