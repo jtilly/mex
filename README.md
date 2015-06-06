@@ -85,7 +85,7 @@ Average time in seconds to compute the 25th Fibonacci number (=75025) on differe
 
 ## Files in this Repository
 
-I'm keeping the Fortran and C++ code fairly self-contained. I'm also providing standalone programs `./standalone.f90.out` and `./standalone.cpp.out` that can be used to debug the Fortran and C++ code independently form Matlab. (This is also the only part of the program that Travis CI is building).
+I'm keeping the Fortran and C++ code fairly self-contained. I'm also providing standalone programs `./standalone.f90.out` and `./standalone.cpp.out` that can be used to debug the Fortran and C++ code independently from Matlab. Travis CI is only building these standalone programs.
 
  * `/c++` 
        - `fibonacci.cpp` Fibonacci function
