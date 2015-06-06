@@ -29,9 +29,15 @@ endif
 # Mac OS X
 ifeq ($(findstring Darwin,${UNAME}), Darwin)
 	# define which files to be included
-	FINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -Ifortran  -shared -lmx -lmex -lmat
+	FINCLUDE = -L$(MDIR)/bin/maci64 -I$(MDIR)/extern/include -Ifortran -lmx -lmex -lmat
 	# define extension
 	EXT = mexmaci64
+    ifeq ($(F90), ifort)
+        FNOMAIN = -nofor_main -bundle
+    endif
+    ifeq ($(F90), gfortran)
+        FNOMAIN = -shared
+    endif
 endif
 
 # the output file will be called gatewayFortran.mexa64
@@ -51,7 +57,7 @@ gatewayFortran.o:./fortran/gatewayFortran.f90 fibonacci.o
 
 # creating the mexa64 file that Matlab can communicate with
 gatewayFortran.$(EXT):gatewayFortran.o
-	$(F90) $(FFLAGS) $(FINCLUDE) ./fortran/gatewayFortran.o ./fortran/globaldef.o ./fortran/fibonacci.o -o $@
+	$(F90) $(FFLAGS) $(FINCLUDE) $(FNOMAIN) ./fortran/gatewayFortran.o ./fortran/globaldef.o ./fortran/fibonacci.o -o $@
 
 # standalone.o 
 standalone.o:./fortran/standalone.f90 fibonacci.o
