@@ -3,13 +3,14 @@
 
 This repository contains an example on how to use [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm computing Fibonacci numbers in Matlab, Fortran, and C++. This works for both the GCC and Intel compilers.
 
-## Installation: Fortran
+## Installation
+#### Fortran
 
  * Edit [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile) and make sure that `MDIR` points to your Matlab installation
  * The default compiler is [`gfortran`](https://gcc.gnu.org/wiki/GFortran). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`fortran.makefile`](https://github.com/jtilly/mex/blob/master/fortran.makefile)
  * Compile the mex file using `make -f fortran.makefile` (or `gnumake  -f fortran.makefile` on OS X)
 
-## Installation: C++
+#### C++
 
  * Edit [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile) and make sure that `MDIR` points to your Matlab installation
  * The default compiler is [`g++`](https://gcc.gnu.org/). If you want to use [`ifort`](https://software.intel.com/en-us/fortran-compilers) uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
@@ -66,11 +67,10 @@ The function [`gatewayCpp`](https://github.com/jtilly/mex/blob/master/c++/gatewa
 int fib(const int n) {
   int fnum;
   if (n<2) {
-       fnum = n;
+     fnum = n;
+  } else {
+     fnum = fib(n-1) + fib(n-2);
   }
-    else {
-       fnum = fib(n-1) + fib(n-2);
-    }
   return fnum;
 }
 ```
