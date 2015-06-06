@@ -1,7 +1,7 @@
 # Using Fortran and C++ mex files with Matlab
 [![Build Status](https://travis-ci.org/jtilly/mex.svg?branch=master)](https://travis-ci.org/jtilly/mex "Don't take this build status badge too seriously, please. I'm only building the standalone program on Travis CI, not the mex files. The badge still looks pretty though :)")
 
-This repository contains example programs for the use of [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm computing Fibonacci numbers in Matlab, Fortran, and C++. All of this works for both [GCC](https://gcc.gnu.org/) and Intel compilers.
+This repository contains example programs for the use of [mex files](http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html) in Matlab on Linux and Mac OS X. I'm computing Fibonacci numbers in Matlab, Fortran, and C++. All of this works with [GCC](https://gcc.gnu.org/) and Intel compilers.
 
 ## Installation
 #### Fortran
