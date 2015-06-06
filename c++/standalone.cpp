@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
   
   // check if there are some arguments
   if(argc > 1) {
-  	 n = atoi(argv[1]);
+    n = atoi(argv[1]);
   }
   
   // compute fibonacci number
