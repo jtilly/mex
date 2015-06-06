@@ -1,7 +1,6 @@
 #include "fintrf.h"
 
 ! standard header for mex functions
-
 subroutine mexfunction(nlhs, plhs, nrhs, prhs)
 
     ! access globaldef
