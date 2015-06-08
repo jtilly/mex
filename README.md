@@ -99,7 +99,7 @@ I'm keeping the Fortran and C++ code self-contained. I'm also providing standalo
        - `gatewayFortran.f90` gateway script that can be called from Matlab
        - `globaldef.f90` module with global definitions
        - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab 
+ * `cpp.makefile` C++ makefile for Linux and Mac OS X 
  * `fibonacci.m` Matlab implementation of the Fibonacci function
+ * `fortran.makefile` Fortran makefile for Linux and Mac OS X 
  * `main.m` Matlab script that calls both the Matlab and Fortran implementation
- * `cpp.makefile` C++ makefile for Linux and Mac OS X
- * `fortran.makefile` Fortran makefile for Linux and Mac OS X
