@@ -15,12 +15,12 @@ This repository contains example programs for the use of [mex files](http://www.
  * Edit [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile) and make sure that `MDIR` points to your Matlab installation
  * The default compiler is `g++` (gcc or clang depending on your system). If you want to use Intel's `icpc`, uncomment the appropriate lines in [`cpp.makefile`](https://github.com/jtilly/mex/blob/master/cpp.makefile)
  * Compile the mex file using `make -f cpp.makefile`
- 
-## Example 
+
+## Example
 
 Run [`main.m`](https://github.com/jtilly/mex/blob/master/main.m) in Matlab:
- 
-```{matlab}
+
+```matlab
 % use matlab (correct answer is 75025)
 tic
 fibonacci(25)
@@ -40,7 +40,7 @@ toc
 Next, consider the different implementations of the Fibonacci function. Note that this is only meant as an illustration. There are [much better ways](https://bosker.wordpress.com/2011/04/29/the-worst-algorithm-in-the-world/) to compute the Fibonacci numbers than the algorithm I'm using here.
 
 The function [`fibonacci`](https://github.com/jtilly/mex/blob/master/fibonacci.m) calls a Matlab implementation of the Fibonacci function:
-```{matlab}
+```matlab
 function [ fnum ] = fibonacci( n )
   if (n<2)
     fnum = n;
@@ -51,11 +51,11 @@ end
 ```
 
 The function [`gatewayFortran`](https://github.com/jtilly/mex/blob/master/fortran/gatewayFortran.f90) calls the mex file that is implemented in Fortran. The underlying Fortran function is very simple:
-```{FORTRAN}
-recursive function fib (n)  result (fnum) 
+```fortran
+recursive function fib (n)  result (fnum)
   integer, intent(in)  :: n
   integer :: fnum
-  if (n<2) then 
+  if (n<2) then
      fnum = n
   else
      fnum = fib(n-1) + fib(n-2)
@@ -64,7 +64,7 @@ end function fib
 ```
 
 The function [`gatewayCpp`](https://github.com/jtilly/mex/blob/master/c++/gatewayCpp.cpp) calls the mex file that is implemented in C++. The underlying C++ function is very simple:
-```{c++}
+```cpp
 int fib(const int n) {
   int fnum;
   if (n<2) {
@@ -89,17 +89,17 @@ Average time in seconds to compute the 25th Fibonacci number (=75025) on differe
 
 I'm keeping the Fortran and C++ code self-contained. I'm also providing standalone programs `./standalone.f90.out` and `./standalone.cpp.out` that can be used to debug the Fortran and C++ code independently from Matlab. Travis CI is only building these standalone programs.
 
- * `/c++` 
+ * `/c++`
        - `fibonacci.cpp` Fibonacci function
        - `fibonacci.h` header file for Fibonacci function
        - `gatewayCpp.cpp` gateway script that can be called from Matlab
-       - `standalone.cpp` a standalone program that calls the Fibonacci function independently from Matlab 
- * `/fortran` 
+       - `standalone.cpp` a standalone program that calls the Fibonacci function independently from Matlab
+ * `/fortran`
        - `fibonacci.f90` module with Fibonacci function
        - `gatewayFortran.f90` gateway script that can be called from Matlab
        - `globaldef.f90` module with global definitions
-       - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab 
- * `cpp.makefile` C++ makefile for Linux and Mac OS X 
+       - `standalone.f90` a standalone program that calls the Fibonacci function independently from Matlab
+ * `cpp.makefile` C++ makefile for Linux and Mac OS X
  * `fibonacci.m` Matlab implementation of the Fibonacci function
- * `fortran.makefile` Fortran makefile for Linux and Mac OS X 
+ * `fortran.makefile` Fortran makefile for Linux and Mac OS X
  * `main.m` Matlab script that calls both the Matlab and Fortran implementation
